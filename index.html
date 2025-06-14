@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Generador de Robux – Estilo Roblox</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --roblox-blue: #1446FF;
+      --bg-dark: #181818;
+      --bg-light: #dadada;
+      --text-dark: #111;
+      --text-light: #fff;
+      --accent: #ca2323;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Rubik', sans-serif;
+      background-color: var(--bg-light);
+      color: var(--text-dark);
+    }
+    header {
+      background-color: var(--bg-dark);
+      padding: 12px 10%;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    header img {
+      height: 100px;
+    }
+    .hero {
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/banner.png') center/cover no-repeat;
+      padding: 100px 10%;
+      color: var(--text-light);
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+    .hero p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .generator {
+      max-width: 700px;
+      margin: -40px auto 40px;
+      background: var(--text-light);
+      border-radius: 12px;
+      padding: 30px 40px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    .generator h2 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+    }
+    .generator input, .generator select {
+      width: 100%;
+      padding: 12px;
+      font-size: 1rem;
+      border: 1px solid #fff9f9;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .btn {
+      background: var(--accent);
+      color: var(--text-light);
+      padding: 12px 24px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 8px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #080808;
+    }
+    .log-box {
+      display: none;
+      background: #636161;
+      color: #f8f0f0;
+      font-size: 1rem;
+      padding: 20px;
+      margin-top: 25px;
+      border-radius: 8px;
+      max-height: 250px;
+      overflow-y: auto;
+      border-left: 5px solid var(--accent);
+    }
+    .log-line {
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+    }
+    .log-line::before {
+      content: '';
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin-right: 10px;
+    }
+    #progressContainer {
+      display: none;
+      background: #d8d4d4;
+      border-radius: 8px;
+      overflow: hidden;
+      margin-top: 20px;
+    }
+    #progressBar {
+      width: 0%;
+      height: 20px;
+      background: var(--accent);
+      transition: width 0.5s;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: #fefdfd;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="/img/roblox-logo.png" alt="Roblox logo">
+  </header>
+
+  <section class="hero">
+    <h1>Generador de Robux</h1>
+    <p>Genera todos tus Robux ilimitadamente</p>
+  </section>
+
+  <section class="generator">
+    <h2>Ingresa tu usuario y elige cantidad de Robux</h2>
+    <input type="text" id="username" placeholder="Ejemplo: gamerXYZ">
+    <select id="amount">
+      <option value="400">400 Robux</option>
+      <option value="800">800 Robux</option>
+      <option value="1700">1,700 Robux</option>
+      <option value="4500">4,500 Robux</option>
+      <option value="10000">10,000 Robux</option>
+    </select>
+    <button class="btn" onclick="startFake()">Generar Robux</button>
+
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <div id="verificando" style="display:none; margin-top:20px; font-size:1.1rem;">🔄 Verificando que no eres un bot...</div>
+    <div class="log-box" id="logBox"></div>
+    <div id="testimonios" style="margin-top:40px; font-style:italic; font-size:0.9rem; color:#444;"></div>
+    <div style="margin-top:30px; text-align:center; font-size:0.95rem; color:#555;">
+       Más de <strong id="contadorUsuarios">123,000</strong> cuentas generadas hoy.
+    </div>
+  </section>
+
+
+  <script>
+    let testimonios = [
+    "🙋‍♂️ Juan23 recibió 1,700 Robux hace 2 minutos.",
+  "🎉 CarlaPlayz recibió 4,500 Robux correctamente.",
+  "✅ Usuario Alex_Games confirmado con 10,000 Robux.",
+  "🎮 La cuenta robloxFan98 recibió 800 Robux exitosamente.",
+  "💎 EstebanBlocks ganó 400 Robux sin errores.",
+  "👾 AnaRBLX completó la verificación y recibió 1,700 Robux.",
+  "🚀 MegaRobuxPro obtuvo 10,000 Robux en menos de 1 minuto.",
+  "🌟 Usuario Luluxx ha recibido 800 Robux exitosamente.",
+  "📦 Entrega completada para gamerMax123 (4,500 Robux).",
+  "🔐 Seguridad verificada. 1,700 Robux para DarkNinjaRBX.",
+  "🥇 MaríaGamer logró reclamar 10,000 Robux sin problemas.",
+  "🧊 ZetaRBLX fue recompensado con 400 Robux.",
+  "🎁 Envío exitoso a DragonRBX: 800 Robux.",
+  "🕹️ Confirmado: LeoPlayz obtuvo 4,500 Robux.",
+  "📲 Robux enviados a SantiGame: 1,700 en total.",
+  "🎯 Recompensa entregada a CoolKid909: 10,000 Robux.",
+  "👻 ShadowNoob recibió 800 Robux esta tarde.",
+  "⚡ Proceso completado para UltraMister: 4,500 Robux.",
+  "🔥 FireBoy obtuvo 1,700 Robux luego de verificación.",
+  "💥 AlexDestroyer obtuvo 400 Robux correctamente.",
+    ];
+    let tIndex = 0;
+    setInterval(() => {
+      document.getElementById("testimonios").innerText = testimonios[tIndex % testimonios.length];
+      tIndex++;
+    }, 5000);
+
+    let contador = 123000;
+    setInterval(() => {
+      contador += Math.floor(Math.random() * 5) + 1;
+      document.getElementById("contadorUsuarios").innerText = contador.toLocaleString();
+    }, 3000);
+
+    function startFake() {
+      const user = document.getElementById('username').value.trim();
+      const amount = document.getElementById('amount').value;
+
+      if (!user) {
+        alert('Por favor ingresa un nombre de usuario válido.');
+        return;
+      }
+
+      const box = document.getElementById('logBox');
+      const progressBar = document.getElementById('progressBar');
+      const progressContainer = document.getElementById('progressContainer');
+      const verifyingText = document.getElementById("verificando");
+
+      box.innerHTML = '';
+      box.style.display = 'none';
+      progressContainer.style.display = 'block';
+      progressBar.style.width = '0%';
+      verifyingText.style.display = "block";
+
+      let progress = 0;
+      let verifyInterval = setInterval(() => {
+        if (progress < 80) {
+          progress += 4;
+          progressBar.style.width = progress + '%';
+        } else {
+          clearInterval(verifyInterval);
+          verifyingText.style.display = "none";
+          launchFakeLogs(user, amount, progress);
+        }
+      }, 150);
+    }
+
+    function launchFakeLogs(user, amount, progress) {
+      const box = document.getElementById('logBox');
+      const progressBar = document.getElementById('progressBar');
+      box.style.display = 'block';
+
+      const logs = [
+        `Conectando con servidores de Roblox...`,
+        `Usuario <strong>${user}</strong> detectado.`,
+        `Verificando sesión activa...`,
+        "Cifrando datos de sesión...",
+        "Verificando integridad del perfil...",
+        "Analizando red local...",
+        "Esperando confirmación del servidor...",
+        "Reintentando conexión segura...",
+        "Robux en cola de envío...",
+        `Solicitando transferencia de <strong>${amount} Robux</strong>...`,
+        `${amount} Robux añadidos a <strong>${user}</strong>.`,
+        `✅ Proceso completado con éxito.`
+      ];
+
+      let i = 0;
+      const interval = setInterval(() => {
+        if (i < logs.length) {
+          const div = document.createElement('div');
+          div.className = 'log-line';
+          div.innerHTML = logs[i];
+          box.appendChild(div);
+          box.scrollTop = box.scrollHeight;
+
+          progress += Math.floor((100 - progress) / (logs.length - i));
+          if (progress > 100) progress = 100;
+          progressBar.style.width = progress + '%';
+
+          i++;
+        } else {
+          clearInterval(interval);
+        }
+      }, 1200);
+    }
+  </script>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+    crossorigin="anonymous"></script>
+</body>
+</html>
+
+</body>
+</html>
