@@ -31,7 +31,7 @@
       height: 100px;
     }
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('WhatsApp Image 2025-06-14 at 11.43.14 AM (1).jpeg') center/cover no-repeat;
+      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/banner.png') center/cover no-repeat;
       padding: 100px 10%;
       color: var(--text-light);
       text-align: center;
@@ -129,7 +129,23 @@
 <body>
 
   <header>
-    <img src="WhatsApp Image 2025-06-14 at 11.43.14 AM.jpeg" alt="Roblox logo">
+
+<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- NUNRUB1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="4694680013"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+    <img src="/img/roblox-logo.png" alt="Roblox logo">
   </header>
 
   <section class="hero">
@@ -137,7 +153,23 @@
     <p>Genera todos tus Robux ilimitadamente</p>
   </section>
 
-  <section class="generator">
+  
+<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNRUB2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="9205604812"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<section class="generator">
     <h2>Ingresa tu usuario y elige cantidad de Robux</h2>
     <input type="text" id="username" placeholder="Ejemplo: gamerXYZ">
     <select id="amount">
@@ -156,10 +188,40 @@
     <div id="verificando" style="display:none; margin-top:20px; font-size:1.1rem;">🔄 Verificando que no eres un bot...</div>
     <div class="log-box" id="logBox"></div>
     <div id="testimonios" style="margin-top:40px; font-style:italic; font-size:0.9rem; color:#444;"></div>
-    <div style="margin-top:30px; text-align:center; font-size:0.95rem; color:#555;">
+    
+<div id="verificacionFinal" style="display:none; text-align:center; margin-top:40px;">
+  <h3>⚠️ Verificación Humana Requerida</h3>
+  <p>Antes de recibir los Robux, por favor completa una verificación.</p>
+  <button onclick="window.location.href='https://streamfocus.lat'" style="padding:12px 20px; font-size:1rem; background:#28a745; color:white; border:none; border-radius:8px; cursor:pointer;">
+    Verificar Ahora
+  </button>
+</div>
+<script>
+  function mostrarVerificacion() {
+    document.getElementById("verificacionFinal").style.display = "block";
+  }
+</script>
+
+<div style="margin-top:30px; text-align:center; font-size:0.95rem; color:#555;">
        Más de <strong id="contadorUsuarios">123,000</strong> cuentas generadas hoy.
     </div>
-  </section>
+  
+<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNURUB3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="3381598347"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+</section>
 
 
   <script>
@@ -266,12 +328,29 @@
           i++;
         } else {
           clearInterval(interval);
+      mostrarVerificacion();
         }
       }, 1200);
     }
   </script>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
     crossorigin="anonymous"></script>
+
+<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNRUB4 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="7920443303"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
 </body>
 </html>
 
