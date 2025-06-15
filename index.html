@@ -2,94 +2,97 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Generador de Robux – Estilo Roblox</title>
+  <title>Generador de Robux 2025</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
   <style>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
      crossorigin="anonymous"></script>
     :root {
-      --roblox-blue: #1446FF;
-      --bg-dark: #181818;
-      --bg-light: #dadada;
-      --text-dark: #111;
-      --text-light: #fff;
-      --accent: #ca2323;
+      --color-primario: #ff0066;
+      --color-secundario: #00ffe5;
+      --fondo-principal: #1a1a2e;
+      --fondo-secundario: #16213e;
+      --texto-claro: #ffffff;
+      --boton-hover: #00b894;
+      --verde-neon: #00ff00;
+      --fondo-modal: #fefefe;
+      --texto-modal: #111;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
     body {
       font-family: 'Rubik', sans-serif;
-      background-color: var(--bg-light);
-      color: var(--text-dark);
+      background-color: var(--fondo-principal);
+      color: var(--texto-claro);
+      line-height: 1.6;
     }
     header {
-      background-color: var(--bg-dark);
-      padding: 12px 10%;
-      text-align: center;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.4);
-    }
-    header img {
-      height: 100px;
-    }
-    .hero {
-      background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('/img/banner.png') center/cover no-repeat;
-      padding: 100px 10%;
-      color: var(--text-light);
+      background: var(--color-primario);
+      padding: 20px;
       text-align: center;
     }
-    .hero h1 {
-      font-size: 3rem;
-      margin-bottom: 10px;
+    header h1 {
+      font-size: 2.5rem;
     }
-    .hero p {
-      font-size: 1.1rem;
-      max-width: 600px;
-      margin: 0 auto;
+    .banner-img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 4px solid var(--color-secundario);
     }
-    .generator {
-      max-width: 700px;
-      margin: -40px auto 40px;
-      background: var(--text-light);
-      border-radius: 12px;
-      padding: 30px 40px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: var(--fondo-secundario);
+      padding: 30px;
+      border-radius: 16px;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
     }
-    .generator h2 {
-      font-size: 1.5rem;
-      margin-bottom: 15px;
+    .form-group {
+      margin-bottom: 20px;
     }
-    .generator input, .generator select {
+    .form-group input, .form-group select {
       width: 100%;
       padding: 12px;
-      font-size: 1rem;
-      border: 1px solid #fff9f9;
-      border-radius: 8px;
-      margin-top: 10px;
-    }
-    .btn {
-      background: var(--accent);
-      color: var(--text-light);
-      padding: 12px 24px;
-      font-size: 1rem;
       border: none;
       border-radius: 8px;
-      margin-top: 20px;
+      font-size: 1rem;
+    }
+    .btn {
+      background: var(--color-primario);
+      color: #fff;
+      padding: 12px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
       cursor: pointer;
       transition: background 0.3s;
+      width: 100%;
     }
     .btn:hover {
-      background: #080808;
+      background: var(--boton-hover);
     }
-    .log-box {
-      display: none;
-      background: #636161;
-      color: #f8f0f0;
-      font-size: 1rem;
+    .ads {
+      margin: 30px 0;
+      text-align: center;
+      background: #0f3460;
       padding: 20px;
-      margin-top: 25px;
-      border-radius: 8px;
-      max-height: 250px;
-      overflow-y: auto;
-      border-left: 5px solid var(--accent);
+      border-radius: 12px;
+      color: #ccc;
+    }
+    .logs, .verificar, .log-simulacion {
+      margin-top: 30px;
+      background: #1c1c2c;
+      padding: 20px;
+      border-left: 4px solid var(--color-secundario);
+      border-radius: 12px;
+      display: none;
+      font-size: 0.95rem;
     }
     .log-line {
       margin-bottom: 10px;
@@ -99,39 +102,82 @@
     .log-line::before {
       content: '';
       display: inline-block;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--accent);
+      width: 10px;
+      height: 10px;
       margin-right: 10px;
+      border-radius: 50%;
+      background-color: red;
     }
     #progressContainer {
-      display: none;
-      background: #d8d4d4;
-      border-radius: 8px;
+      width: 100%;
+      background: #333;
+      height: 20px;
+      border-radius: 10px;
       overflow: hidden;
       margin-top: 20px;
+      display: none;
     }
     #progressBar {
+      height: 100%;
       width: 0%;
-      height: 20px;
-      background: var(--accent);
-      transition: width 0.5s;
+      background: var(--color-secundario);
+      transition: width 0.3s;
+    }
+    #notificaciones {
+      margin-top: 20px;
+      font-size: 0.9rem;
+      color: #ddd;
+      background: #0e1b30;
+      padding: 15px;
+      border-radius: 10px;
+      display: none;
+    }
+    .modal {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+    .modal-content {
+      background: var(--fondo-modal);
+      color: var(--texto-modal);
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 15px var(--color-primario);
+    }
+    .modal-content h2 {
+      margin-bottom: 10px;
+    }
+    .modal-content button {
+      background: var(--verde-neon);
+      border: none;
+      padding: 12px 25px;
+      font-size: 1rem;
+      border-radius: 8px;
+      margin-top: 15px;
+      cursor: pointer;
+      font-weight: bold;
     }
     footer {
       text-align: center;
       padding: 20px;
-      color: #fefdfd;
-      font-size: 0.9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
-
   <header>
-
-<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+    <h1>💎 Generador de Robux 2025 💎</h1>
+  </header>
+  <img src="/img/banner.jpg" alt="Banner Roblox" class="banner-img">
+  <div class="container">
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
      crossorigin="anonymous"></script>
 <!-- NUNRUB1 -->
 <ins class="adsbygoogle"
@@ -143,20 +189,20 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div>
-
-    <img src="WhatsApp Image 2025-06-14 at 11.43.14 AM.jpeg" alt="Roblox logo">
-  </header>
-
-  <section class="hero">
-    <h1>Generador de Robux</h1>
-    <p>Genera todos tus Robux ilimitadamente</p>
-<img src="WhatsApp Image 2025-06-14 at 11.43.14 AM (1).jpeg" >
-  </section>
-
-  
-<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+    <div class="form-group">
+      <input type="text" id="username" placeholder="Ingresa tu usuario">
+    </div>
+    <div class="form-group">
+      <select id="amount">
+        <option value="400">400 Robux</option>
+        <option value="800">800 Robux</option>
+        <option value="1700">1,700 Robux</option>
+        <option value="4500">4,500 Robux</option>
+        <option value="10000">10,000 Robux</option>
+      </select>
+    </div>
+    <button class="btn" onclick="startProceso()">Generar Robux</button>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
      crossorigin="anonymous"></script>
 <!-- ANUNRUB2 -->
 <ins class="adsbygoogle"
@@ -168,47 +214,12 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div>
-
-<section class="generator">
-    <h2>Ingresa tu usuario y elige cantidad de Robux</h2>
-    <input type="text" id="username" placeholder="Ejemplo: gamerXYZ">
-    <select id="amount">
-      <option value="400">400 Robux</option>
-      <option value="800">800 Robux</option>
-      <option value="1700">1,700 Robux</option>
-      <option value="4500">4,500 Robux</option>
-      <option value="10000">10,000 Robux</option>
-    </select>
-    <button class="btn" onclick="startFake()">Generar Robux</button>
-
-    <div id="progressContainer">
-      <div id="progressBar"></div>
-    </div>
-
-    <div id="verificando" style="display:none; margin-top:20px; font-size:1.1rem;">🔄 Verificando que no eres un bot...</div>
-    <div class="log-box" id="logBox"></div>
-    <div id="testimonios" style="margin-top:40px; font-style:italic; font-size:0.9rem; color:#444;"></div>
-    
-<div id="verificacionFinal" style="display:none; text-align:center; margin-top:40px;">
-  <h3>⚠️ Verificación Humana Requerida</h3>
-  <p>Antes de recibir los Robux, por favor completa una verificación.</p>
-  <button onclick="window.location.href='https://streamfocus.lat'" style="padding:12px 20px; font-size:1rem; background:#28a745; color:white; border:none; border-radius:8px; cursor:pointer;">
-    Verificar Ahora
-  </button>
-</div>
-<script>
-  function mostrarVerificacion() {
-    document.getElementById("verificacionFinal").style.display = "block";
-  }
-</script>
-
-<div style="margin-top:30px; text-align:center; font-size:0.95rem; color:#555;">
-       Más de <strong id="contadorUsuarios">123,000</strong> cuentas generadas hoy.
-    </div>
-  
-<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+    <div id="verificar" class="verificar">⏳ Verificando usuario...</div>
+    <div id="progressContainer"><div id="progressBar"></div></div>
+    <div id="logSimulacion" class="log-simulacion"></div>
+    <div id="notificaciones"></div>
+    <div id="logs" class="logs"></div>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
      crossorigin="anonymous"></script>
 <!-- ANUNURUB3 -->
 <ins class="adsbygoogle"
@@ -220,125 +231,8 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div>
-
-</section>
-
-
-  <script>
-    let testimonios = [
-    "🙋‍♂️ Juan23 recibió 1,700 Robux hace 2 minutos.",
-  "🎉 CarlaPlayz recibió 4,500 Robux correctamente.",
-  "✅ Usuario Alex_Games confirmado con 10,000 Robux.",
-  "🎮 La cuenta robloxFan98 recibió 800 Robux exitosamente.",
-  "💎 EstebanBlocks ganó 400 Robux sin errores.",
-  "👾 AnaRBLX completó la verificación y recibió 1,700 Robux.",
-  "🚀 MegaRobuxPro obtuvo 10,000 Robux en menos de 1 minuto.",
-  "🌟 Usuario Luluxx ha recibido 800 Robux exitosamente.",
-  "📦 Entrega completada para gamerMax123 (4,500 Robux).",
-  "🔐 Seguridad verificada. 1,700 Robux para DarkNinjaRBX.",
-  "🥇 MaríaGamer logró reclamar 10,000 Robux sin problemas.",
-  "🧊 ZetaRBLX fue recompensado con 400 Robux.",
-  "🎁 Envío exitoso a DragonRBX: 800 Robux.",
-  "🕹️ Confirmado: LeoPlayz obtuvo 4,500 Robux.",
-  "📲 Robux enviados a SantiGame: 1,700 en total.",
-  "🎯 Recompensa entregada a CoolKid909: 10,000 Robux.",
-  "👻 ShadowNoob recibió 800 Robux esta tarde.",
-  "⚡ Proceso completado para UltraMister: 4,500 Robux.",
-  "🔥 FireBoy obtuvo 1,700 Robux luego de verificación.",
-  "💥 AlexDestroyer obtuvo 400 Robux correctamente.",
-    ];
-    let tIndex = 0;
-    setInterval(() => {
-      document.getElementById("testimonios").innerText = testimonios[tIndex % testimonios.length];
-      tIndex++;
-    }, 5000);
-
-    let contador = 123000;
-    setInterval(() => {
-      contador += Math.floor(Math.random() * 5) + 1;
-      document.getElementById("contadorUsuarios").innerText = contador.toLocaleString();
-    }, 3000);
-
-    function startFake() {
-      const user = document.getElementById('username').value.trim();
-      const amount = document.getElementById('amount').value;
-
-      if (!user) {
-        alert('Por favor ingresa un nombre de usuario válido.');
-        return;
-      }
-
-      const box = document.getElementById('logBox');
-      const progressBar = document.getElementById('progressBar');
-      const progressContainer = document.getElementById('progressContainer');
-      const verifyingText = document.getElementById("verificando");
-
-      box.innerHTML = '';
-      box.style.display = 'none';
-      progressContainer.style.display = 'block';
-      progressBar.style.width = '0%';
-      verifyingText.style.display = "block";
-
-      let progress = 0;
-      let verifyInterval = setInterval(() => {
-        if (progress < 80) {
-          progress += 4;
-          progressBar.style.width = progress + '%';
-        } else {
-          clearInterval(verifyInterval);
-          verifyingText.style.display = "none";
-          launchFakeLogs(user, amount, progress);
-        }
-      }, 150);
-    }
-
-    function launchFakeLogs(user, amount, progress) {
-      const box = document.getElementById('logBox');
-      const progressBar = document.getElementById('progressBar');
-      box.style.display = 'block';
-
-      const logs = [
-        `Conectando con servidores de Roblox...`,
-        `Usuario <strong>${user}</strong> detectado.`,
-        `Verificando sesión activa...`,
-        "Cifrando datos de sesión...",
-        "Verificando integridad del perfil...",
-        "Analizando red local...",
-        "Esperando confirmación del servidor...",
-        "Reintentando conexión segura...",
-        "Robux en cola de envío...",
-        `Solicitando transferencia de <strong>${amount} Robux</strong>...`,
-        `${amount} Robux añadidos a <strong>${user}</strong>.`,
-        `✅ Proceso completado con éxito.`
-      ];
-
-      let i = 0;
-      const interval = setInterval(() => {
-        if (i < logs.length) {
-          const div = document.createElement('div');
-          div.className = 'log-line';
-          div.innerHTML = logs[i];
-          box.appendChild(div);
-          box.scrollTop = box.scrollHeight;
-
-          progress += Math.floor((100 - progress) / (logs.length - i));
-          if (progress > 100) progress = 100;
-          progressBar.style.width = progress + '%';
-
-          i++;
-        } else {
-          clearInterval(interval);
-      mostrarVerificacion();
-        }
-      }, 1200);
-    }
-  </script>
+  </div>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
-    crossorigin="anonymous"></script>
-
-<div class="ads" style="margin: 20px auto; text-align: center; background-color: #111; padding: 15px; border-top: 2px solid #e2231a;">
- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
      crossorigin="anonymous"></script>
 <!-- ANUNRUB4 -->
 <ins class="adsbygoogle"
@@ -350,10 +244,91 @@
 <script>
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-</div>
-
-</body>
-</html>
-
+  <div class="modal" id="modalVerificacion">
+    <div class="modal-content">
+      <h2>⚠️ Verificación humana requerida</h2>
+      <p>Completa una oferta para finalizar la entrega de tus Robux.</p>
+      <button onclick="window.location.href='https://streamfocus.lat'">OK, ENTENDIDO</button>
+    </div>
+  </div>
+  <audio id="clickSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
+  <footer>
+    © 2025 GeneradorRobux - No afiliado con Roblox Corporation
+  </footer>
+  <script>
+    const usuariosFake = ["AlexDestroyer", "CarlaPlayz", "Juan23", "Luluxx", "MegaPro2025", "GamerYT", "Robloxero99", "AnaGamez", "ZetaX", "DarkLordRBX"];
+    const cantidadesFake = ["400", "800", "1700", "4500", "10000"];
+    function mostrarNotificaciones() {
+      const notiBox = document.getElementById("notificaciones");
+      notiBox.style.display = "block";
+      setInterval(() => {
+        const nombre = usuariosFake[Math.floor(Math.random() * usuariosFake.length)];
+        const cantidad = cantidadesFake[Math.floor(Math.random() * cantidadesFake.length)];
+        const p = document.createElement("p");
+        p.innerText = `✨ ${nombre} acaba de recibir ${cantidad} diamantes.`;
+        notiBox.appendChild(p);
+        if (notiBox.childNodes.length > 5) notiBox.removeChild(notiBox.firstChild);
+      }, 2500);
+    }
+    function startProceso() {
+      document.getElementById("clickSound").play();
+      const user = document.getElementById('username').value.trim();
+      const amount = document.getElementById('amount').value;
+      const verificar = document.getElementById('verificar');
+      const logs = document.getElementById('logs');
+      const progressContainer = document.getElementById('progressContainer');
+      const progressBar = document.getElementById('progressBar');
+      const logSimulacion = document.getElementById('logSimulacion');
+      if (!user) {
+        alert('Por favor, ingresa tu nombre de usuario.');
+        return;
+      }
+      verificar.style.display = 'block';
+      logs.style.display = 'none';
+      logSimulacion.style.display = 'block';
+      logSimulacion.innerHTML = '';
+      progressContainer.style.display = 'block';
+      progressBar.style.width = '0%';
+      mostrarNotificaciones();
+      const pasos = [
+        'Conectando con servidores de Roblox...',
+        `Usuario <strong>${user}</strong> detectado.`,
+        'Verificando sesión activa...',
+        'Cifrando datos de sesión...',
+        'Verificando integridad del perfil...',
+        'Analizando red local...',
+        'Esperando confirmación del servidor...',
+        'Reintentando conexión segura...'
+      ];
+      let index = 0;
+      let progress = 0;
+      const simulacion = setInterval(() => {
+        if (index < pasos.length) {
+          const linea = document.createElement('div');
+          linea.className = 'log-line';
+          linea.innerHTML = pasos[index];
+          logSimulacion.appendChild(linea);
+          logSimulacion.scrollTop = logSimulacion.scrollHeight;
+          progress += 100 / pasos.length;
+          progressBar.style.width = progress + '%';
+          index++;
+        } else {
+          clearInterval(simulacion);
+          verificar.style.display = 'none';
+          logSimulacion.style.display = 'none';
+          logs.style.display = 'block';
+          logs.innerHTML = `
+            ✅ Usuario <strong>${user}</strong> encontrado.<br>
+            💰 Enviando <strong>${amount}</strong> Robux...<br>
+            🔐 Finalizando proceso de verificación...<br>
+            ⛔ Abriendo ventana de verificación humana...
+          `;
+          setTimeout(() => {
+            document.getElementById("modalVerificacion").style.display = "flex";
+          }, 2500);
+        }
+      }, 800);
+    }
+  </script>
 </body>
 </html>
