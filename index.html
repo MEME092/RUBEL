@@ -1,343 +1,455 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Generador de Robux 2025</title>
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
-     crossorigin="anonymous"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROBUX HUNT</title>
+
+  <!-- Google AdSense -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+    crossorigin="anonymous"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="img/logo.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
   <style>
-   
-    :root {
-      --color-primario: #ff0066;
-      --color-secundario: #00ffe5;
-      --fondo-principal: #1a1a2e;
-      --fondo-secundario: #16213e;
-      --texto-claro: #ffffff;
-      --boton-hover: #00b894;
-      --verde-neon: #00ff00;
-      --fondo-modal: #fefefe;
-      --texto-modal: #111;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
-      font-family: 'Rubik', sans-serif;
-      background-color: var(--fondo-principal);
-      color: var(--texto-claro);
-      line-height: 1.6;
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0b0f2a;
+      color: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
-    header {
-      background: var(--color-primario);
-      padding: 20px;
+
+    .header {
       text-align: center;
-    }
-    header h1 {
-      font-size: 2.5rem;
-    }
-    .banner-img {
+      background: #111944;
+      color: #ffffff;
+      padding: 20px;
       width: 100%;
-      height: auto;
-      max-height: 300px;
-      object-fit: cover;
-      display: block;
-      border-bottom: 4px solid var(--color-secundario);
     }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: var(--fondo-secundario);
-      padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 0 30px rgba(0,0,0,0.6);
-    }
-    .form-group {
-      margin-bottom: 20px;
-    }
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 12px;
+
+    .header nav button {
+      margin: 10px 5px;
+      background: #00bfff;
+      color: #000;
+      padding: 10px 15px;
+      font-weight: bold;
       border: none;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    .btn {
-      background: var(--color-primario);
-      color: #fff;
-      padding: 12px;
-      border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background 0.3s;
-      width: 100%;
     }
-    .btn:hover {
-      background: var(--boton-hover);
+
+    .header nav button:hover {
+      background: #0099cc;
     }
-    .ads {
-      margin: 30px 0;
+
+    .game {
+      margin: 20px auto;
       text-align: center;
-      background: #0f3460;
-      padding: 20px;
-      border-radius: 12px;
-      color: #ccc;
     }
-    .logs, .verificar, .log-simulacion {
-      margin-top: 30px;
-      background: #1c1c2c;
-      padding: 20px;
-      border-left: 4px solid var(--color-secundario);
-      border-radius: 12px;
-      display: none;
-      font-size: 0.95rem;
+
+    .grid {
+      display: grid;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px auto;
     }
-    .log-line {
-      margin-bottom: 10px;
+
+    .cell {
+      width: 60px;
+      height: 60px;
+      background: #1a1f3c;
+      border: 2px solid #00bfff;
+      border-radius: 8px;
+      font-size: 1.5rem;
+      color: white;
       display: flex;
       align-items: center;
-    }
-    .log-line::before {
-      content: '';
-      display: inline-block;
-      width: 10px;
-      height: 10px;
-      margin-right: 10px;
-      border-radius: 50%;
-      background-color: red;
-    }
-    #progressContainer {
-      width: 100%;
-      background: #333;
-      height: 20px;
-      border-radius: 10px;
-      overflow: hidden;
-      margin-top: 20px;
-      display: none;
-    }
-    #progressBar {
-      height: 100%;
-      width: 0%;
-      background: var(--color-secundario);
-      transition: width 0.3s;
-    }
-    #notificaciones {
-      margin-top: 20px;
-      font-size: 0.9rem;
-      color: #ddd;
-      background: #0e1b30;
-      padding: 15px;
-      border-radius: 10px;
-      display: none;
-    }
-    .modal {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.9);
-      display: none;
-      align-items: center;
       justify-content: center;
-      z-index: 9999;
-    }
-    .modal-content {
-      background: var(--fondo-modal);
-      color: var(--texto-modal);
-      padding: 30px;
-      border-radius: 10px;
-      text-align: center;
-      box-shadow: 0 0 15px var(--color-primario);
-    }
-    .modal-content h2 {
-      margin-bottom: 10px;
-    }
-    .modal-content button {
-      background: var(--verde-neon);
-      border: none;
-      padding: 12px 25px;
-      font-size: 1rem;
-      border-radius: 8px;
-      margin-top: 15px;
       cursor: pointer;
-      font-weight: bold;
+      transition: background 0.3s;
     }
-    footer {
-      text-align: center;
+
+    .cell:hover {
+      background: #223366;
+    }
+
+    .cell.clicked {
+      background: #333a5c;
+      cursor: default;
+    }
+
+    .cell.robux {
+      background-color: #00ffe1;
+      animation: sparkle 0.3s ease-in-out;
+    }
+
+    .cell.fallo {
+      background-color: #1e2a4a !important;
+    }
+
+    .cell img {
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+    }
+
+    .controls {
+      margin-top: 10px;
+    }
+
+    .controls button {
+      background: #00bfff;
+      color: #000;
+      padding: 10px 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .controls button:hover {
+      background: #0099cc;
+    }
+
+    .message {
+      background: #16203f;
+      border: 2px solid #00bfff;
       padding: 20px;
-      color: #aaa;
+      border-radius: 10px;
+      margin: 20px auto;
+      text-align: center;
+      max-width: 400px;
+    }
+
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .input-group input {
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      text-align: center;
+      font-size: 1rem;
+    }
+
+    .input-group button {
+      background: #00bfff;
+      border: none;
+      padding: 10px;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    #animacionGenerando {
+      color: #00ffcc;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      transition: opacity 0.3s;
+    }
+
+    #animacionGenerando.visible {
+      display: block;
+      animation: dots 1s steps(3, end) infinite;
+    }
+
+    @keyframes sparkle {
+      0% { transform: scale(0.8); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+
+    .ranking {
+      background: #111944;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+      margin: 30px auto;
+      color: white;
+    }
+
+    .ranking ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .ranking li {
+      padding: 5px 0;
+      border-bottom: 1px solid #333;
+      opacity: 0;
+    }
+
+    .footer {
+      background: #0b0f2a;
+      color: #888;
+      padding: 15px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    .hidden {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>💎 Generador de Robux 2025 💎</h1>
+  <header class="header">
+    <h1>ROBUX HUNT</h1>
+    <p>Juega y gana grandes cantidades de Robux</p>
+    <nav>
+      <button id="modoJuegoBtn">Juego Facil</button>
+      <button id="modoApuestaBtn">Modo Normal</button>
+      <button id="modoExtremoBtn">Modo Extremo</button>
+      <button id="modoLegendarioBtn">Modo Legendario</button>
+      <button id="rankingBtn">Ranking</button>
+    </nav>
   </header>
-  <img src="WhatsApp Image 2025-06-14 at 11.43.14 AM (1).jpeg" alt="Banner Roblox" class="banner-img">
-  <div class="container">
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
-     crossorigin="anonymous"></script>
-<!-- NUNRUB1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5710936095528547"
-     data-ad-slot="4694680013"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    <div class="form-group">
-      <input type="text" id="username" placeholder="Ingresa tu usuario">
+
+  <main class="game">
+    <div class="info">
+      <div id="score">Puntos: 0</div>
+      <div id="intentos">Fallos: 0 / 6</div>
     </div>
-    <div class="form-group">
-      <select id="amount">
-        <option value="400">400 Robux</option>
-        <option value="800">800 Robux</option>
-        <option value="1700">1,700 Robux</option>
-        <option value="4500">4,500 Robux</option>
-        <option value="10000">10,000 Robux</option>
-      </select>
+    <div class="grid" id="grid"></div>
+    <div class="controls">
+      <button id="restartBtn">Jugar de nuevo</button>
     </div>
-    <button class="btn" onclick="startProceso()">Generar Robux</button>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
-     crossorigin="anonymous"></script>
-<!-- ANUNRUB2 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5710936095528547"
-     data-ad-slot="9205604812"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-    <div id="verificar" class="verificar">⏳ Verificando usuario...</div>
-    <div id="progressContainer"><div id="progressBar"></div></div>
-    <div id="logSimulacion" class="log-simulacion"></div>
-    <div id="notificaciones"></div>
-    <div id="logs" class="logs"></div>
-   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
-     crossorigin="anonymous"></script>
-<!-- ANUNURUB3 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5710936095528547"
-     data-ad-slot="3381598347"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
+  </main>
+
+  <div class="ads-container">
+    <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-client="ca-pub-5710936095528547"
+      data-ad-slot="1234567890"
+      data-ad-format="auto"
+      data-full-width-responsive="true"></ins>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
   </div>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
-     crossorigin="anonymous"></script>
-<!-- ANUNRUB4 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-5710936095528547"
-     data-ad-slot="7920443303"
-     data-ad-format="auto"
-     data-full-width-responsive="true"></ins>
-<script>
-     (adsbygoogle = window.adsbygoogle || []).push({});
-</script>
-  <div class="modal" id="modalVerificacion">
-    <div class="modal-content">
-      <h2>⚠️ Verificación humana requerida</h2>
-      <p>Completa una oferta para finalizar la entrega de tus Robux.</p>
-      <button onclick="window.location.href='https://streamfocus.lat'">OK, ENTENDIDO</button>
+
+  <section id="reward" class="message hidden">
+    <h2>¡Has ganado Robux!</h2>
+    <p>Ganaste <span id="robuxGanados">0</span> Robux</p>
+    <div class="input-group">
+      <label for="nombreInput">Ingresa tu nombre:</label>
+      <input type="text" id="nombreInput" placeholder="Ej: RobuxKing99">
+      <button id="guardarGanadorBtn">Guardar Ganador</button>
+      <p id="animacionGenerando" class="hidden">Generando Robux...</p>
     </div>
-  </div>
-  <audio id="clickSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg"></audio>
-  <footer>
-    © 2025 GeneradorRobux - No afiliado con Roblox Corporation
+  </section>
+
+  <section id="gameover" class="message hidden">
+    <h2>💀 Fin del juego</h2>
+    <p>Aunque no ganaste todo... ¡Te llevas Robux por intentarlo!</p>
+  </section>
+
+  <section class="ranking hidden" id="ranking">
+    <h2>🏆 Ranking de Jugadores</h2>
+    <ul id="rankingList"></ul>
+  </section>
+
+  <footer class="footer">
+    <p>&copy; 2025 ROBUX HUNT. Todos los derechos reservados.</p>
   </footer>
+
   <script>
-    const usuariosFake = ["AlexDestroyer", "CarlaPlayz", "Juan23", "Luluxx", "MegaPro2025", "GamerYT", "Robloxero99", "AnaGamez", "ZetaX", "DarkLordRBX"];
-    const cantidadesFake = ["400", "800", "1700", "4500", "10000"];
-    function mostrarNotificaciones() {
-      const notiBox = document.getElementById("notificaciones");
-      notiBox.style.display = "block";
-      setInterval(() => {
-        const nombre = usuariosFake[Math.floor(Math.random() * usuariosFake.length)];
-        const cantidad = cantidadesFake[Math.floor(Math.random() * cantidadesFake.length)];
-        const p = document.createElement("p");
-        p.innerText = `✨ ${nombre} acaba de recibir ${cantidad} diamantes.`;
-        notiBox.appendChild(p);
-        if (notiBox.childNodes.length > 5) notiBox.removeChild(notiBox.firstChild);
-      }, 2500);
-    }
-    function startProceso() {
-      document.getElementById("clickSound").play();
-      const user = document.getElementById('username').value.trim();
-      const amount = document.getElementById('amount').value;
-      const verificar = document.getElementById('verificar');
-      const logs = document.getElementById('logs');
-      const progressContainer = document.getElementById('progressContainer');
-      const progressBar = document.getElementById('progressBar');
-      const logSimulacion = document.getElementById('logSimulacion');
-      if (!user) {
-        alert('Por favor, ingresa tu nombre de usuario.');
-        return;
+    const grid = document.getElementById("grid");
+    const scoreDisplay = document.getElementById("score");
+    const intentosDisplay = document.getElementById("intentos");
+    const rewardBox = document.getElementById("reward");
+    const gameOverBox = document.getElementById("gameover");
+    const restartBtn = document.getElementById("restartBtn");
+    const guardarGanadorBtn = document.getElementById("guardarGanadorBtn");
+    const nombreInput = document.getElementById("nombreInput");
+    const rankingList = document.getElementById("rankingList");
+    const robuxGanados = document.getElementById("robuxGanados");
+    const animacionGenerando = document.getElementById("animacionGenerando");
+
+    const modoJuegoBtn = document.getElementById("modoJuegoBtn");
+    const modoApuestaBtn = document.getElementById("modoApuestaBtn");
+    const modoExtremoBtn = document.getElementById("modoExtremoBtn");
+    const modoLegendarioBtn = document.getElementById("modoLegendarioBtn");
+    const rankingBtn = document.getElementById("rankingBtn");
+    const rankingSection = document.getElementById("ranking");
+
+    let score = 0;
+    let fallos = 0;
+    let robuxCount = 12;
+    let fallosMax = 6;
+    let gridSize = 5;
+    let robuxPositions = [];
+    let ganadores = [];
+
+    function initGame() {
+      grid.innerHTML = "";
+      score = 0;
+      fallos = 0;
+      robuxPositions = [];
+      scoreDisplay.textContent = `Puntos: ${score}`;
+      intentosDisplay.textContent = `Fallos: ${fallos} / ${fallosMax}`;
+      rewardBox.classList.add("hidden");
+      gameOverBox.classList.add("hidden");
+
+      const totalCells = gridSize * gridSize;
+      while (robuxPositions.length < robuxCount) {
+        const pos = Math.floor(Math.random() * totalCells);
+        if (!robuxPositions.includes(pos)) robuxPositions.push(pos);
       }
-      verificar.style.display = 'block';
-      logs.style.display = 'none';
-      logSimulacion.style.display = 'block';
-      logSimulacion.innerHTML = '';
-      progressContainer.style.display = 'block';
-      progressBar.style.width = '0%';
-      mostrarNotificaciones();
-      const pasos = [
-        'Conectando con servidores de Roblox...',
-        `Usuario <strong>${user}</strong> detectado.`,
-        'Verificando sesión activa...',
-        'Cifrando datos de sesión...',
-        'Verificando integridad del perfil...',
-        'Analizando red local...',
-        'Esperando confirmación del servidor...',
-        'Reintentando conexión segura...'
-      ];
-      let index = 0;
-      let progress = 0;
-      const simulacion = setInterval(() => {
-        if (index < pasos.length) {
-          const linea = document.createElement('div');
-          linea.className = 'log-line';
-          linea.innerHTML = pasos[index];
-          logSimulacion.appendChild(linea);
-          logSimulacion.scrollTop = logSimulacion.scrollHeight;
-          progress += 100 / pasos.length;
-          progressBar.style.width = progress + '%';
-          index++;
-        } else {
-          clearInterval(simulacion);
-          verificar.style.display = 'none';
-          logSimulacion.style.display = 'none';
-          logs.style.display = 'block';
-          logs.innerHTML = `
-            ✅ Usuario <strong>${user}</strong> encontrado.<br>
-            💰 Enviando <strong>${amount}</strong> Robux...<br>
-            🔐 Finalizando proceso de verificación...<br>
-            ⛔ Abriendo ventana de verificación humana...
-          `;
-          setTimeout(() => {
-            document.getElementById("modalVerificacion").style.display = "flex";
-          }, 2500);
-        }
-      }, 800);
+
+      grid.style.gridTemplateColumns = `repeat(${gridSize}, 60px)`;
+
+      for (let i = 0; i < totalCells; i++) {
+        const cell = document.createElement("div");
+        cell.classList.add("cell");
+        cell.dataset.index = i;
+        cell.addEventListener("click", handleClick);
+        grid.appendChild(cell);
+      }
     }
+
+    function handleClick(e) {
+      const cell = e.target;
+      const index = parseInt(cell.dataset.index);
+      if (cell.classList.contains("clicked") || score >= robuxCount || fallos >= fallosMax) return;
+
+      cell.classList.add("clicked");
+
+      if (robuxPositions.includes(index)) {
+        cell.classList.add("robux");
+        const img = document.createElement("img");
+        img.src = "img/logo.png";
+        img.alt = "Robux";
+        cell.appendChild(img);
+        score++;
+        scoreDisplay.textContent = `Puntos: ${score}`;
+        if (score === robuxCount) {
+          const robux = 600 + Math.floor(Math.random() * 400);
+          robuxGanados.textContent = robux;
+          score = robux;
+          rewardBox.classList.remove("hidden");
+        }
+      } else {
+        cell.textContent = "❌";
+        cell.classList.add("fallo");
+        fallos++;
+        intentosDisplay.textContent = `Fallos: ${fallos} / ${fallosMax}`;
+        if (fallos >= fallosMax) {
+          const robux = 300 + Math.floor(Math.random() * 200);
+          robuxGanados.textContent = robux;
+          score = robux;
+          rewardBox.classList.remove("hidden");
+        }
+      }
+    }
+
+    guardarGanadorBtn.addEventListener("click", () => {
+      const nombre = nombreInput.value.trim();
+      if (nombre !== "") {
+        animacionGenerando.classList.remove("hidden");
+        animacionGenerando.classList.add("visible");
+        animacionGenerando.textContent = "Generando Robux";
+
+        let puntos = 0;
+        const interval = setInterval(() => {
+          puntos = (puntos + 1) % 4;
+          animacionGenerando.textContent = "Generando Robux" + ".".repeat(puntos);
+        }, 400);
+
+        setTimeout(() => {
+          clearInterval(interval);
+          animacionGenerando.classList.add("hidden");
+          animacionGenerando.classList.remove("visible");
+
+          ganadores.push({ nombre, robux: score });
+          actualizarRanking();
+          nombreInput.value = "";
+          alert("✅ ¡Ganador registrado con éxito!");
+        }, 2500);
+      }
+    });
+
+    function actualizarRanking() {
+      rankingList.innerHTML = "";
+
+      if (ganadores.length < 10) {
+        const nombresFicticios = ["Rubel", "UltraNoob", "XxProxX", "DarkLord", "QueenPixel", "RobuxCobra", "BuildGod", "NukeX", "Ghost999"];
+        for (let i = 0; i < 10; i++) {
+          const nombre = nombresFicticios[Math.floor(Math.random() * nombresFicticios.length)];
+          const robux = 400 + Math.floor(Math.random() * 600);
+          ganadores.push({ nombre, robux });
+        }
+      }
+
+      const lista = ganadores.slice().sort((a, b) => b.robux - a.robux);
+      let i = 0;
+
+      function mostrarUnoPorUno() {
+        if (i >= lista.length) return;
+        const g = lista[i];
+        const li = document.createElement("li");
+        li.textContent = `${g.nombre} ganó ${g.robux} Robux 💰`;
+        li.style.opacity = 0;
+        rankingList.appendChild(li);
+
+        setTimeout(() => {
+          li.style.transition = "opacity 0.5s";
+          li.style.opacity = 1;
+        }, 100);
+
+        i++;
+        setTimeout(mostrarUnoPorUno, 500);
+      }
+
+      mostrarUnoPorUno();
+    }
+
+    modoJuegoBtn.addEventListener("click", () => {
+      gridSize = 5;
+      robuxCount = 12;
+      fallosMax = 7;
+      initGame();
+    });
+
+    modoApuestaBtn.addEventListener("click", () => {
+      gridSize = 6;
+      robuxCount = 15;
+      fallosMax = 6;
+      initGame();
+    });
+
+    modoExtremoBtn.addEventListener("click", () => {
+      gridSize = 7;
+      robuxCount = 20;
+      fallosMax = 5;
+      initGame();
+    });
+
+    modoLegendarioBtn.addEventListener("click", () => {
+      gridSize = 8;
+      robuxCount = 25;
+      fallosMax = 4;
+      initGame();
+    });
+
+    rankingBtn.addEventListener("click", () => {
+      rankingSection.classList.toggle("hidden");
+    });
+
+    restartBtn.addEventListener("click", initGame);
+
+    initGame();
+    actualizarRanking();
   </script>
-
-<!-- Contador WAU -->
-<script id="_wauiv0">
-  var _wau = _wau || [];
-  _wau.push(["dynamic", "3og01j51hs", "iv0", "000000ff0000", "small"]);
-</script>
-<script async src="//waust.at/d.js"></script>
-
 </body>
 </html>
