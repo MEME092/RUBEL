@@ -200,18 +200,28 @@
     .hidden {
       display: none;
     }
-    @keyframes pulse {
-  0% { box-shadow: 0 0 15px #ff00ff, 0 0 30px #9400d3; }
-  50% { box-shadow: 0 0 25px #ff00ff, 0 0 45px #9400d3; }
-  100% { box-shadow: 0 0 15px #ff00ff, 0 0 30px #9400d3; }
-}
-
   </style>
 </head>
 <body>
   <header class="header">
     <h1>ROBUX HUNT</h1>
     <p>Juega y gana grandes cantidades de Robux</p>
+<!-- ESPACIO PARA ANUNCIO DEBAJO DEL TÍTULO -->
+<div class="ads-container">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- NUNRUB1 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="4694680013"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
     <nav>
       <button id="modoJuegoBtn">Juego Facil</button>
       <button id="modoApuestaBtn">Modo Normal</button>
@@ -221,13 +231,47 @@
     </nav>
   </header>
 
-  <main class="game">
+  
+<!-- ESPACIO PARA ANUNCIO SUPERIOR -->
+<div class="ads-container">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNRUB2 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="9205604812"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<main class="game">
     <div class="info">
       <div id="score">Puntos: 0</div>
       <div id="intentos">Fallos: 0 / 6</div>
     </div>
     <div class="grid" id="grid"></div>
-    <div class="controls">
+    
+<!-- ESPACIO PARA ANUNCIO INTERMEDIO -->
+<div class="ads-container">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNURUB3 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="3381598347"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="controls">
       <button id="restartBtn">Jugar de nuevo</button>
     </div>
   </main>
@@ -263,11 +307,57 @@
   <section class="ranking hidden" id="ranking">
     <h2>🏆 Ranking de Jugadores</h2>
     <ul id="rankingList"></ul>
-  </section>
+  
+<!-- ESPACIO PARA ANUNCIO DEBAJO DEL RANKING -->
+<div class="ads-container">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNRUB4 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="7920443303"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 
-  <footer class="footer">
+  
+<!-- ESPACIO PARA ANUNCIO ANTES DEL FOOTER -->
+<div class="ads-container">
+ <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNRUB5 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="6357022146"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<footer class="footer">
     <p>&copy; 2025 ROBUX HUNT. Todos los derechos reservados.</p>
   </footer>
+    <div class="ads-container">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5710936095528547"
+     crossorigin="anonymous"></script>
+<!-- ANUNRUB6 -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5710936095528547"
+     data-ad-slot="4893296035"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
 
   <script>
     const grid = document.getElementById("grid");
@@ -457,68 +547,5 @@
     initGame();
     actualizarRanking();
   </script>
-  <!-- Audios -->
-<audio id="bgMusic" src="sounds/fondo_gamer.mp3" autoplay loop></audio>
-<audio id="clickSound" src="sounds/click.mp3"></audio>
-<audio id="victorySound" src="sounds/victory.mp3"></audio>
-
-<!-- Botón flotante para música -->
-<button id="toggleMusicBtn" style="position: fixed; top: 20px; right: 20px; background: #00bfff; border: none; color: black; padding: 10px 14px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 0 12px #00bfff;">🔊</button>
-
-<script>
-  const bgMusic = document.getElementById("bgMusic");
-  const toggleBtn = document.getElementById("toggleMusicBtn");
-  bgMusic.volume = 0.2;
-  toggleBtn.addEventListener("click", () => {
-    if (bgMusic.muted) {
-      bgMusic.muted = false;
-      toggleBtn.textContent = "🔊";
-    } else {
-      bgMusic.muted = true;
-      toggleBtn.textContent = "🔇";
-    }
-  });
-</script>
-<!-- Audios -->
-<audio id="bgMusic" src="sounds/fondo_gamer.mp3" loop></audio>
-<audio id="clickSound" src="sounds/click.mp3"></audio>
-<audio id="victorySound" src="sounds/victory.mp3"></audio>
-
-<!-- Botón de sonido -->
-<button id="toggleMusicBtn" style="position: fixed; top: 20px; right: 20px; background: #00bfff; border: none; color: black; padding: 10px 14px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 0 12px #00bfff;">🔊</button>
-
-<script>
-  const bgMusic = document.getElementById("bgMusic");
-  const toggleBtn = document.getElementById("toggleMusicBtn");
-  const clickSound = document.getElementById("clickSound");
-  const victorySound = document.getElementById("victorySound");
-
-  // Volumen por defecto
-  bgMusic.volume = 0.2;
-  clickSound.volume = 0.8;
-  victorySound.volume = 0.8;
-
-  // Permitir reproducción tras el primer clic
-  document.addEventListener("click", () => {
-    const intentos = [bgMusic, clickSound, victorySound];
-    intentos.forEach(audio => {
-      audio.play().then(() => {
-        audio.pause(); // iniciar y pausar para que luego sí se reproduzcan
-        audio.currentTime = 0;
-      }).catch(err => {
-        console.log("Esperando interacción para permitir sonido:", err);
-      });
-    });
-
-    bgMusic.play().catch(() => {});
-  }, { once: true });
-
-  // Botón para silenciar/activar
-  toggleBtn.addEventListener("click", () => {
-    bgMusic.muted = !bgMusic.muted;
-    toggleBtn.textContent = bgMusic.muted ? "🔇" : "🔊";
-  });
-</script>
-
 </body>
 </html>
