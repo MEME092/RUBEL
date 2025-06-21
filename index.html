@@ -200,6 +200,12 @@
     .hidden {
       display: none;
     }
+    @keyframes pulse {
+  0% { box-shadow: 0 0 15px #ff00ff, 0 0 30px #9400d3; }
+  50% { box-shadow: 0 0 25px #ff00ff, 0 0 45px #9400d3; }
+  100% { box-shadow: 0 0 15px #ff00ff, 0 0 30px #9400d3; }
+}
+
   </style>
 </head>
 <body>
@@ -451,5 +457,28 @@
     initGame();
     actualizarRanking();
   </script>
+  <!-- Audios -->
+<audio id="bgMusic" src="sounds/fondo_gamer.mp3" autoplay loop></audio>
+<audio id="clickSound" src="sounds/click.mp3"></audio>
+<audio id="victorySound" src="sounds/victory.mp3"></audio>
+
+<!-- Botón flotante para música -->
+<button id="toggleMusicBtn" style="position: fixed; top: 20px; right: 20px; background: #00bfff; border: none; color: black; padding: 10px 14px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 0 12px #00bfff;">🔊</button>
+
+<script>
+  const bgMusic = document.getElementById("bgMusic");
+  const toggleBtn = document.getElementById("toggleMusicBtn");
+  bgMusic.volume = 0.2;
+  toggleBtn.addEventListener("click", () => {
+    if (bgMusic.muted) {
+      bgMusic.muted = false;
+      toggleBtn.textContent = "🔊";
+    } else {
+      bgMusic.muted = true;
+      toggleBtn.textContent = "🔇";
+    }
+  });
+</script>
+
 </body>
 </html>
