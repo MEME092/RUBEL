@@ -479,6 +479,46 @@
     }
   });
 </script>
+<!-- Audios -->
+<audio id="bgMusic" src="sounds/fondo_gamer.mp3" loop></audio>
+<audio id="clickSound" src="sounds/click.mp3"></audio>
+<audio id="victorySound" src="sounds/victory.mp3"></audio>
+
+<!-- Botón de sonido -->
+<button id="toggleMusicBtn" style="position: fixed; top: 20px; right: 20px; background: #00bfff; border: none; color: black; padding: 10px 14px; border-radius: 50%; font-size: 20px; font-weight: bold; cursor: pointer; box-shadow: 0 0 12px #00bfff;">🔊</button>
+
+<script>
+  const bgMusic = document.getElementById("bgMusic");
+  const toggleBtn = document.getElementById("toggleMusicBtn");
+  const clickSound = document.getElementById("clickSound");
+  const victorySound = document.getElementById("victorySound");
+
+  // Volumen por defecto
+  bgMusic.volume = 0.2;
+  clickSound.volume = 0.8;
+  victorySound.volume = 0.8;
+
+  // Permitir reproducción tras el primer clic
+  document.addEventListener("click", () => {
+    const intentos = [bgMusic, clickSound, victorySound];
+    intentos.forEach(audio => {
+      audio.play().then(() => {
+        audio.pause(); // iniciar y pausar para que luego sí se reproduzcan
+        audio.currentTime = 0;
+      }).catch(err => {
+        console.log("Esperando interacción para permitir sonido:", err);
+      });
+    });
+
+    bgMusic.play().catch(() => {});
+  }, { once: true });
+
+  // Botón para silenciar/activar
+  toggleBtn.addEventListener("click", () => {
+    bgMusic.muted = !bgMusic.muted;
+    toggleBtn.textContent = bgMusic.muted ? "🔇" : "🔊";
+  });
+</script>
 
 </body>
 </html>
